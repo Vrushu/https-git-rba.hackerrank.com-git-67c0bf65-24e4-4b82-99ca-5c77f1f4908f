@@ -6,40 +6,45 @@ public class FurnitureOrder implements FurnitureOrderInterface {
     /**
      * TODO: Create a map of Furniture items to order quantities
      */
+    HashMap<Furniture, Integer> furnitureMap;
 
     /**
      * Initialize a new mapping of Furniture types to order quantities.
      */
     FurnitureOrder() {
-        // TODO: Complete the constructor
+        furnitureMap =  = new HashMap<Furniture, Integer>(); 
+        
     }
 
     public void addToOrder(final Furniture type, final int furnitureCount) {
-        // TODO: Complete the method
+        int curCount = furnitureMap.get(type);
+        int newCount = prevCount+ furnitureCount;
+        furnitureMap.put(type, newCount);
     }
 
-    public HashMap<Furniture, Integer> getOrderedFurniture() {
-        // TODO: Complete the method
-        return null;
+    public HashMap<Furniture, Integer> getOrderedFurniture() {        
+        return furnitureMap;
     }
 
     public float getTotalOrderCost() {
-        // TODO: Complete the method
-        return -1.0f;
+        float chairCost = furnitureMap.get(Furniture.CHAIR) * Furniture.CHAIR.cost();
+        float tableCost = furnitureMap.get(Furniture.TABLE) * Furniture.TABLE.cost();
+        float couchCost = furnitureMap.get(Furniture.COUCH) * Furniture.COUCH.cost();
+        return chairCost+tableCost+couchCost;
     }
 
-    public int getTypeCount(Furniture type) {
-        // TODO: Complete the method
-        return -1;
+    public int getTypeCount(Furniture type) {        
+        return furnitureMap.get(type);
     }
 
-    public float getTypeCost(Furniture type) {
-        // TODO: Complete the method
-        return -1.0f;
+    public float getTypeCost(Furniture type) {        
+        return type.cost();
     }
 
     public int getTotalOrderQuantity() {
-        // TODO: Complete the method
-        return -1;
+        int chairCount = furnitureMap.get(Furniture.CHAIR) ;
+        int tableCount = furnitureMap.get(Furniture.TABLE) ;
+        int couchCount = furnitureMap.get(Furniture.COUCH) ;
+        return chairCount + tableCount + couchCount ;
     }
 }
