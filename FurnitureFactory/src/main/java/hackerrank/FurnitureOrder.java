@@ -13,6 +13,9 @@ public class FurnitureOrder implements FurnitureOrderInterface {
      */
     FurnitureOrder() {
         furnitureMap =  = new HashMap<Furniture, Integer>(); 
+        furnitureMap.put(Furniture.CHAIR, 0);
+        furnitureMap.put(Furniture.TABLE, 0);
+        furnitureMap.put(Furniture.COUCH, 0);
         
     }
 
@@ -30,7 +33,7 @@ public class FurnitureOrder implements FurnitureOrderInterface {
         float chairCost = furnitureMap.get(Furniture.CHAIR) * Furniture.CHAIR.cost();
         float tableCost = furnitureMap.get(Furniture.TABLE) * Furniture.TABLE.cost();
         float couchCost = furnitureMap.get(Furniture.COUCH) * Furniture.COUCH.cost();
-        return chairCost+tableCost+couchCost;
+        return chairCost + tableCost + couchCost;
     }
 
     public int getTypeCount(Furniture type) {        
